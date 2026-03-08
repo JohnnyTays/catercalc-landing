@@ -360,6 +360,45 @@
             font-size: 0.95rem;
         }
         
+        /* Quote Management Section */
+        .quote-mgmt {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.02);
+            border-radius: 24px;
+            margin: 4rem 5%;
+        }
+        
+        .quote-mgmt-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .quote-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .quote-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .quote-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .quote-card p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+        
         /* Pricing Section */
         .pricing {
             padding: 6rem 5%;
@@ -508,7 +547,7 @@
                 justify-content: center;
             }
             
-            .features-grid, .pricing-grid {
+            .features-grid, .pricing-grid, .quote-mgmt-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -532,8 +571,8 @@
         </div>
         <div class="nav-links">
             <a href="#features">Features</a>
+            <a href="#quotes">Quotes</a>
             <a href="#pricing">Pricing</a>
-            <a href="#contact">Contact</a>
             <a href="https://catercalc-pro.pages.dev/" class="btn btn-outline">Log In</a>
             <a href="https://catercalc-pro.pages.dev/" class="btn btn-primary">Get Started Free</a>
         </div>
@@ -543,7 +582,7 @@
         <div class="hero-content">
             <div class="badge">🚀 #1 Catering Calculator</div>
             <h1>Stop Guessing.<br>Start <span>Profiting.</span></h1>
-            <p>Type "150 guests, wedding, BBQ" and get exact quotes, shopping lists, local suppliers, and negotiation guides. The AI does the math. You keep the profit.</p>
+            <p>Type "200 guests, wedding, full service dinner" and get exact quotes, shopping lists, local suppliers, staffing plans, negotiation guides & more. The AI does the math. You keep the profit.</p>
             
             <div class="hero-buttons">
                 <a href="https://catercalc-pro.pages.dev/" class="btn btn-primary">Try Free →</a>
@@ -552,16 +591,16 @@
             
             <div class="hero-stats">
                 <div class="stat">
-                    <div class="stat-number">$68K</div>
-                    <div class="stat-label">Potential Profit/Year</div>
+                    <div class="stat-number">$9,874</div>
+                    <div class="stat-label">Wedding Quote (200 guests)</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">5 min</div>
-                    <div class="stat-label">To Complete Quote</div>
+                    <div class="stat-number">$3,291</div>
+                    <div class="stat-label">Profit Per Event</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">AI Accurate</div>
+                    <div class="stat-number">$131/hr</div>
+                    <div class="stat-label">Your Hourly Rate</div>
                 </div>
             </div>
         </div>
@@ -575,17 +614,18 @@
                 </div>
                 <div class="demo-content">
                     <div style="margin-bottom: 1rem;">
-                        <strong>Input:</strong> "150 guests, corporate event, BBQ buffet"
+                        <strong>Input:</strong> "200 guests, wedding, full service dinner"<br>
+                        <strong>Zip:</strong> 90210 (Beverly Hills)
                     </div>
                     <div class="demo-result">
                         <div class="result-card">
                             <div class="result-label">Quote</div>
-                            <div class="result-value">$4,281</div>
-                            <div class="result-sub">$28.55/person</div>
+                            <div class="result-value">$9,874</div>
+                            <div class="result-sub">$49.37/person</div>
                         </div>
                         <div class="result-card">
                             <div class="result-label">Profit</div>
-                            <div class="result-value">$1,427</div>
+                            <div class="result-value">$3,291</div>
                             <div class="result-sub">50% margin</div>
                         </div>
                     </div>
@@ -636,6 +676,51 @@
                 <h3>Profit Analytics</h3>
                 <p>Track your hourly rate per event. See exactly how much you're making and where to improve.</p>
             </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">👨‍🍳</div>
+                <h3>Staffing Plan</h3>
+                <p>Complete team structure with roles, pay rates, and schedules for any size event.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⚠️</div>
+                <h3>Risk Assessment</h3>
+                <p>Identify potential risks and get mitigation strategies for every job.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>AI Advisor</h3>
+                <p>"Rosa" gives personalized advice based on your event type and location.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="quote-mgmt" id="quotes">
+        <div class="section-header">
+            <h2>Quote Management Built In</h2>
+            <p>Track every lead from quote to signed contract.</p>
+        </div>
+        
+        <div class="quote-mgmt-grid">
+            <div class="quote-card">
+                <div class="quote-card-icon">⏳</div>
+                <h3>Pending Quotes</h3>
+                <p>Keep track of all quotes waiting for client response. Mark as Accepted or Denied.</p>
+            </div>
+            
+            <div class="quote-card">
+                <div class="quote-card-icon">✅</div>
+                <h3>Accepted Quotes</h3>
+                <p>See your win rate. Know which jobs are confirmed and ready to execute.</p>
+            </div>
+            
+            <div class="quote-card">
+                <div class="quote-card-icon">💾</div>
+                <h3>Import / Export</h3>
+                <p>Export all data to JSON. Import on another device. Your data travels with you.</p>
+            </div>
         </div>
     </section>
     
@@ -654,7 +739,8 @@
                     <li>3 quotes per month</li>
                     <li>Basic cost calculation</li>
                     <li>Shopping list generation</li>
-                    <li>Community support</li>
+                    <li>Quote tracking</li>
+                    <li>Export/Import data</li>
                 </ul>
                 <a href="https://catercalc-pro.pages.dev/" class="btn btn-outline">Get Started</a>
             </div>
@@ -692,7 +778,7 @@
     
     <section class="cta" id="contact">
         <h2>Ready to Price Like a Pro?</h2>
-        <p>Join hundreds of caterers and food truck owners who've stopped underpricing their work.</p>
+        <p>Join caterers and food truck owners who've stopped underpricing their work.</p>
         <a href="https://catercalc-pro.pages.dev/" class="btn btn-primary">Get Started for Free →</a>
     </section>
     
