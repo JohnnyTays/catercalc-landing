@@ -3,66 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CaterCalc Pro | Stop Underpricing. Start Profiting.</title>
-    <meta name="description" content="AI-powered catering calculator that tells you exactly what to charge, what to buy, and where to shop. Save $1,000s on every event.">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="CaterCalc Pro | Stop Underpricing. Start Profiting">
-    <meta property="og:description" content="AI-powered catering calculator for food trucks & caterers. Get exact quotes in seconds.">
-    <meta property="og:type" content="website">
-    
-    <!-- Fonts -->
+    <title>CaterCalc Pro — Know Your Numbers. Feed Your Profit.</title>
+    <meta name="description" content="AI-powered catering calculator. Get exact quotes, shopping lists, staffing plans, and profit analysis. Stop guessing. Start profiting.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF6B35;
-            --primary-dark: #E55A2B;
-            --secondary: #1A1A2E;
-            --accent: #00D4AA;
-            --light: #F8F9FA;
-            --dark: #0F0F1A;
-            --gray: #6C757D;
-            --success: #28A745;
+            --kitchen-stainless: #8B9A9B;
+            --kitchen-warm: #E07A5F;
+            --profit-green: #2D6A4F;
+            --fresh-herb: #40916C;
+            --clean-white: #FAFAFA;
+            --slate-dark: #1E2328;
+            --slate-mid: #2D3436;
+            --alert-orange: #F4A261;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--dark);
-            color: white;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--slate-dark);
+            color: var(--clean-white);
             line-height: 1.6;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
         
-        /* Animated Background */
-        .bg-pattern {
+        .bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            inset: 0;
             background: 
-                radial-gradient(ellipse at 20% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
-                linear-gradient(180deg, var(--dark) 0%, #0D0D14 100%);
+                radial-gradient(ellipse at 20% 80%, rgba(224, 122, 95, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(45, 106, 79, 0.08) 0%, transparent 50%);
+            z-index: -1;
         }
         
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
-            max-width: 1200px;
+            padding: 1.25rem 5%;
+            max-width: 1400px;
             margin: 0 auto;
         }
         
@@ -70,499 +51,337 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
         
         .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 12px;
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--kitchen-warm), var(--alert-orange));
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
         
         .nav-links {
             display: flex;
-            gap: 2rem;
-            align-items: center;
+            gap: 1.5rem;
         }
         
         .nav-links a {
-            color: rgba(255,255,255,0.7);
+            color: rgba(250, 250, 250, 0.7);
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
         }
         
         .nav-links a:hover {
-            color: white;
+            color: var(--clean-white);
         }
         
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.75rem;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1rem;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 30px rgba(255, 107, 53, 0.5);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid rgba(255,255,255,0.3);
-            color: white;
-        }
-        
-        .btn-outline:hover {
-            border-color: white;
-            background: rgba(255,255,255,0.1);
-        }
-        
-        /* Hero Section */
         .hero {
-            padding: 4rem 5%;
-            max-width: 1200px;
+            padding: 3rem 5% 2rem;
+            max-width: 900px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            min-height: 80vh;
-        }
-        
-        .hero-content {
-            animation: fadeInUp 0.8s ease;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .badge {
-            display: inline-block;
-            background: rgba(0, 212, 170, 0.15);
-            color: var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 212, 170, 0.3);
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-        
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-        }
-        
-        .stat {
             text-align: center;
         }
         
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent);
-        }
-        
-        .stat-label {
-            font-size: 0.875rem;
-            color: rgba(255,255,255,0.5);
-        }
-        
-        /* Demo Video / Screenshot */
-        .hero-demo {
-            position: relative;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-        
-        .demo-window {
-            background: #1A1A2E;
-            border-radius: 20px;
-            padding: 1rem;
-            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .demo-header {
-            display: flex;
-            gap: 0.5rem;
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
             margin-bottom: 1rem;
+            line-height: 1.15;
         }
         
-        .demo-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
+        h1 span {
+            color: var(--kitchen-warm);
         }
         
-        .demo-dot.red { background: #FF5F56; }
-        .demo-dot.yellow { background: #FFBD2E; }
-        .demo-dot.green { background: #27CA40; }
+        .hero > p {
+            font-size: 1.15rem;
+            color: rgba(250, 250, 250, 0.75);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
         
-        .demo-content {
-            background: white;
-            border-radius: 12px;
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, var(--kitchen-warm), var(--alert-orange));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(224, 122, 95, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(224, 122, 95, 0.4);
+        }
+        
+        .section {
+            padding: 3rem 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .demo-box {
+            background: var(--slate-mid);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
             padding: 1.5rem;
-            color: #333;
-            min-height: 300px;
+            margin: 0 auto 2.5rem;
+            max-width: 850px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
         
-        .demo-result {
+        .query-display {
+            background: rgba(224, 122, 95, 0.15);
+            border: 1px solid rgba(224, 122, 95, 0.3);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+            text-align: left;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: #FFD6BA;
+        }
+        
+        .result-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
+            margin-bottom: 1.5rem;
         }
         
         .result-card {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 1rem;
-            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.25rem;
             text-align: center;
         }
         
         .result-label {
             font-size: 0.75rem;
-            color: #666;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.1em;
+            color: rgba(250, 250, 250, 0.6);
+            margin-bottom: 0.5rem;
         }
         
         .result-value {
             font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
         }
         
-        .result-sub {
-            font-size: 0.75rem;
-            color: #666;
-        }
+        .result-value.price { color: var(--clean-white); }
+        .result-value.profit { color: var(--profit-green); }
+        .result-value.margin { color: var(--fresh-herb); }
+        .result-value.hourly { color: var(--alert-orange); }
         
-        /* Features Section */
-        .features {
-            padding: 6rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
+        .breakdown-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 1.25rem;
             margin-bottom: 1rem;
         }
         
-        .section-header p {
-            color: rgba(255,255,255,0.6);
-            font-size: 1.125rem;
-            max-width: 600px;
-            margin: 0 auto;
+        .breakdown-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--kitchen-warm);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .breakdown-list {
+            list-style: none;
+        }
+        
+        .breakdown-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .breakdown-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .breakdown-list .amount {
+            font-family: 'Space Mono', monospace;
+            color: rgba(250, 250, 250, 0.8);
+        }
+        
+        .negotiation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+        
+        .neg-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .neg-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.4rem;
+        }
+        
+        .neg-card.safe .neg-label { color: var(--profit-green); }
+        .neg-card.premium .neg-label { color: var(--alert-orange); }
+        .neg-card.walkaway .neg-label { color: #E63946; }
+        
+        .neg-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
         }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
         }
         
         .feature-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 2rem;
+            background: var(--slate-mid);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
             transition: all 0.3s;
         }
         
         .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            background: rgba(255,107,53,0.05);
+            transform: translateY(-3px);
+            border-color: var(--kitchen-warm);
         }
         
         .feature-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.25rem;
             margin-bottom: 0.75rem;
         }
         
-        .feature-card p {
-            color: rgba(255,255,255,0.5);
-            font-size: 0.95rem;
-        }
-        
-        /* Quote Management Section */
-        .quote-mgmt {
-            padding: 6rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.02);
-            border-radius: 24px;
-            margin: 4rem 5%;
-        }
-        
-        .quote-mgmt-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .quote-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        .quote-card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .quote-card h3 {
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
             margin-bottom: 0.5rem;
         }
         
-        .quote-card p {
-            color: rgba(255,255,255,0.5);
+        .feature-card p {
+            color: rgba(250, 250, 250, 0.65);
             font-size: 0.9rem;
         }
         
-        /* Pricing Section */
-        .pricing {
-            padding: 6rem 5%;
-            max-width: 1200px;
+        .pricing-section {
+            background: var(--slate-mid);
+            border-radius: 16px;
+            padding: 2rem;
             margin: 0 auto;
+            max-width: 800px;
         }
         
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
         
         .pricing-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 2.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
             text-align: center;
-            position: relative;
         }
         
         .pricing-card.featured {
-            background: linear-gradient(180deg, rgba(255,107,53,0.1), rgba(255,107,53,0.02));
-            border-color: var(--primary);
-            transform: scale(1.05);
+            border: 2px solid var(--kitchen-warm);
         }
         
-        .pricing-card.featured::before {
-            content: 'MOST POPULAR';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: white;
-            padding: 0.375rem 1rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        
-        .pricing-name {
-            font-size: 1.25rem;
-            font-weight: 700;
+        .pricing-title {
+            font-size: 0.9rem;
+            font-weight: 600;
             margin-bottom: 0.5rem;
         }
         
         .pricing-price {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            margin-bottom: 1rem;
         }
         
         .pricing-price span {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
             font-weight: 400;
-        }
-        
-        .pricing-desc {
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
+            color: rgba(250, 250, 250, 0.5);
         }
         
         .pricing-features {
             list-style: none;
             text-align: left;
-            margin-bottom: 2rem;
         }
         
         .pricing-features li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: rgba(255,255,255,0.8);
+            padding: 0.4rem 0;
+            font-size: 0.85rem;
+            color: rgba(250, 250, 250, 0.7);
         }
         
         .pricing-features li::before {
-            content: '✓';
-            color: var(--accent);
-            font-weight: 700;
+            content: "✓";
+            color: var(--profit-green);
+            margin-right: 0.5rem;
         }
         
-        .pricing-card .btn {
-            width: 100%;
-            justify-content: center;
-        }
-        
-        /* CTA Section */
-        .cta {
-            padding: 6rem 5%;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .cta h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cta p {
-            color: rgba(255,255,255,0.6);
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-        }
-        
-        /* Footer */
         footer {
-            padding: 3rem 5%;
+            padding: 2.5rem;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: rgba(255,255,255,0.4);
-            font-size: 0.875rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
         }
         
-        /* Mobile */
+        footer p {
+            color: rgba(250, 250, 250, 0.5);
+            font-size: 0.85rem;
+        }
+        
         @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 2rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-            
-            .hero p {
-                margin: 0 auto 2rem;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .hero-stats {
-                justify-content: center;
-            }
-            
-            .features-grid, .pricing-grid, .quote-mgmt-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .pricing-card.featured {
-                transform: none;
-            }
-            
-            .nav-links {
-                display: none;
-            }
+            .nav-links { display: none; }
+            .negotiation-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="bg-pattern"></div>
+    <div class="bg"></div>
     
     <nav>
         <div class="logo">
@@ -571,219 +390,164 @@
         </div>
         <div class="nav-links">
             <a href="#features">Features</a>
-            <a href="#quotes">Quotes</a>
+            <a href="#demo">Demo</a>
             <a href="#pricing">Pricing</a>
-            <a href="https://catercalc-pro.pages.dev/" class="btn btn-outline">Log In</a>
-            <a href="https://catercalc-pro.pages.dev/" class="btn btn-primary">Get Started Free</a>
+            <a href="https://catercalc-pro.pages.dev/">Open App</a>
         </div>
     </nav>
     
     <section class="hero">
-        <div class="hero-content">
-            <div class="badge">🚀 #1 Catering Calculator</div>
-            <h1>Stop Guessing.<br>Start <span>Profiting.</span></h1>
-            <p>Type "200 guests, wedding, full service dinner" and get exact quotes, shopping lists, local suppliers, staffing plans, negotiation guides & more. The AI does the math. You keep the profit.</p>
+        <h1>Stop Guessing.<br><span>Start Profiting.</span></h1>
+        <p>Type "200 guests, wedding, full service dinner" and get exact quotes, shopping lists, local suppliers, staffing plans, and negotiation guides. The AI does the math. You keep the profit.</p>
+        <a href="https://catercalc-pro.pages.dev/" target="_blank" class="cta-button">
+            🚀 Start Free
+        </a>
+    </section>
+    
+    <section class="section" id="demo">
+        <div class="demo-box">
+            <div class="query-display">"60 people, wedding, fajitas" — Beverly Hills (90210)</div>
             
-            <div class="hero-buttons">
-                <a href="https://catercalc-pro.pages.dev/" class="btn btn-primary">Try Free →</a>
-                <a href="https://catercalc-pro.pages.dev/" class="btn btn-outline">See How It Works</a>
+            <div class="result-grid">
+                <div class="result-card">
+                    <div class="result-label">Your Quote</div>
+                    <div class="result-value price">$1,739.61</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Your Profit</div>
+                    <div class="result-value profit">$579.87</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Profit Margin</div>
+                    <div class="result-value margin">50%</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Your Hourly</div>
+                    <div class="result-value hourly">$52.72/hr</div>
+                </div>
             </div>
             
-            <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-number">$9,874</div>
-                    <div class="stat-label">Wedding Quote (200 guests)</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="breakdown-card">
+                    <div class="breakdown-title">🥘 Food Cost Breakdown</div>
+                    <ul class="breakdown-list">
+                        <li><span>Chicken Breast</span><span class="amount">$67.50</span></li>
+                        <li><span>Beef Skirt Steak</span><span class="amount">$120.00</span></li>
+                        <li><span>Guacamole</span><span class="amount">$59.88</span></li>
+                        <li><span>Tortillas</span><span class="amount">$45.00</span></li>
+                        <li><span>TOTAL</span><span class="amount">$474.74</span></li>
+                    </ul>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">$3,291</div>
-                    <div class="stat-label">Profit Per Event</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">$131/hr</div>
-                    <div class="stat-label">Your Hourly Rate</div>
+                <div class="breakdown-card">
+                    <div class="breakdown-title">👥 Staffing Recommendation</div>
+                    <ul class="breakdown-list">
+                        <li><span>Head Chef/Driver</span><span class="amount">Rosa</span></li>
+                        <li><span>Food Truck Cook</span><span class="amount">1</span></li>
+                        <li><span>Server/Cashier</span><span class="amount">1</span></li>
+                        <li><span>Total Hours</span><span class="amount">7 hrs</span></li>
+                        <li><span>Cook Rate</span><span class="amount">$25-28/hr</span></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        
-        <div class="hero-demo">
-            <div class="demo-window">
-                <div class="demo-header">
-                    <div class="demo-dot red"></div>
-                    <div class="demo-dot yellow"></div>
-                    <div class="demo-dot green"></div>
-                </div>
-                <div class="demo-content">
-                    <div style="margin-bottom: 1rem;">
-                        <strong>Input:</strong> "200 guests, wedding, full service dinner"<br>
-                        <strong>Zip:</strong> 90210 (Beverly Hills)
+            
+            <div class="breakdown-card">
+                <div class="breakdown-title">🤝 Negotiation Guide</div>
+                <div class="negotiation-grid">
+                    <div class="neg-card safe">
+                        <div class="neg-label">✓ Lowest Safe</div>
+                        <div class="neg-value">$1,507.66</div>
                     </div>
-                    <div class="demo-result">
-                        <div class="result-card">
-                            <div class="result-label">Quote</div>
-                            <div class="result-value">$9,874</div>
-                            <div class="result-sub">$49.37/person</div>
-                        </div>
-                        <div class="result-card">
-                            <div class="result-label">Profit</div>
-                            <div class="result-value">$3,291</div>
-                            <div class="result-sub">50% margin</div>
-                        </div>
+                    <div class="neg-card premium">
+                        <div class="neg-label">⭐ Premium</div>
+                        <div class="neg-value">$2,319.48</div>
+                    </div>
+                    <div class="neg-card walkaway">
+                        <div class="neg-label">❌ Walk Away</div>
+                        <div class="neg-value">$1,275.71</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <section class="features" id="features">
-        <div class="section-header">
-            <h2>Everything You Need to Price Profitably</h2>
-            <p>Other calculators just do math. CaterCalc does market research.</p>
-        </div>
-        
+    <section class="section" id="features">
+        <h2 class="section-title">What the Numbers Tell You</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">🤖</div>
-                <h3>AI Market Research</h3>
-                <p>Analyzes local pricing, competition, and trends to suggest the perfect profit margin for each event.</p>
+                <div class="feature-icon">📊</div>
+                <h3>Exact Quotes</h3>
+                <p>Never underprice again. Get professional quotes with cost breakdown and profit analysis for any event type.</p>
             </div>
-            
             <div class="feature-card">
                 <div class="feature-icon">🛒</div>
-                <h3>Smart Shopping List</h3>
-                <p>Generates exact quantities needed and tells you where to buy in your area for the best prices.</p>
+                <h3>Smart Shopping Lists</h3>
+                <p>Exact quantities with local supplier recommendations. Know where to buy in your area for the best prices.</p>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">💰</div>
-                <h3>Exact Quotes</h3>
-                <p>Never underprice again. Get professional quotes with cost breakdown and profit analysis.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📋</div>
-                <h3>Negotiation Guide</h3>
-                <p>Know your walk-away price and premium price. Be prepared for client negotiations.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">⏱️</div>
-                <h3>Event Timeline</h3>
-                <p>Get a complete prep schedule from shopping to service. Never miss a step.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Profit Analytics</h3>
-                <p>Track your hourly rate per event. See exactly how much you're making and where to improve.</p>
-            </div>
-            
             <div class="feature-card">
                 <div class="feature-icon">👨‍🍳</div>
-                <h3>Staffing Plan</h3>
-                <p>Complete team structure with roles, pay rates, and schedules for any size event.</p>
+                <h3>Staffing Plans</h3>
+                <p>Complete team structure with roles, pay rates, and schedules. Know exactly who you need and for how long.</p>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">⚠️</div>
-                <h3>Risk Assessment</h3>
-                <p>Identify potential risks and get mitigation strategies for every job.</p>
-            </div>
-            
             <div class="feature-card">
                 <div class="feature-icon">💬</div>
-                <h3>AI Advisor</h3>
-                <p>"Rosa" gives personalized advice based on your event type and location.</p>
+                <h3>Negotiation Guide</h3>
+                <p>Know your walk-away price and premium price. Be prepared for every client conversation.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>Event Timeline</h3>
+                <p>Get a complete prep schedule from shopping to service. Never miss a step in execution.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>Rosa the Advisor</h3>
+                <p>AI advisor gives personalized advice based on your event type and location. It's like having a mentor in your pocket.</p>
             </div>
         </div>
     </section>
     
-    <section class="quote-mgmt" id="quotes">
-        <div class="section-header">
-            <h2>Quote Management Built In</h2>
-            <p>Track every lead from quote to signed contract.</p>
-        </div>
-        
-        <div class="quote-mgmt-grid">
-            <div class="quote-card">
-                <div class="quote-card-icon">⏳</div>
-                <h3>Pending Quotes</h3>
-                <p>Keep track of all quotes waiting for client response. Mark as Accepted or Denied.</p>
-            </div>
-            
-            <div class="quote-card">
-                <div class="quote-card-icon">✅</div>
-                <h3>Accepted Quotes</h3>
-                <p>See your win rate. Know which jobs are confirmed and ready to execute.</p>
-            </div>
-            
-            <div class="quote-card">
-                <div class="quote-card-icon">💾</div>
-                <h3>Import / Export</h3>
-                <p>Export all data to JSON. Import on another device. Your data travels with you.</p>
-            </div>
-        </div>
-    </section>
-    
-    <section class="pricing" id="pricing">
-        <div class="section-header">
-            <h2>Simple, Fair Pricing</h2>
-            <p>No hidden fees. No unlimited claims. Just pay for what you use.</p>
-        </div>
-        
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div class="pricing-name">Starter</div>
-                <div class="pricing-price">$0<span>/mo</span></div>
-                <div class="pricing-desc">Perfect for testing</div>
-                <ul class="pricing-features">
-                    <li>3 quotes per month</li>
-                    <li>Basic cost calculation</li>
-                    <li>Shopping list generation</li>
-                    <li>Quote tracking</li>
-                    <li>Export/Import data</li>
-                </ul>
-                <a href="https://catercalc-pro.pages.dev/" class="btn btn-outline">Get Started</a>
-            </div>
-            
-            <div class="pricing-card featured">
-                <div class="pricing-name">Pro</div>
-                <div class="pricing-price">$19.99<span>/mo</span></div>
-                <div class="pricing-desc">Most popular choice</div>
-                <ul class="pricing-features">
-                    <li>25 quotes per month</li>
-                    <li>AI market research</li>
-                    <li>Local supplier lookup</li>
-                    <li>Save & manage quotes</li>
-                    <li>Negotiation guides</li>
-                    <li>Priority support</li>
-                </ul>
-                <a href="https://catercalc-pro.pages.dev/" class="btn btn-primary">Start Free Trial</a>
-            </div>
-            
-            <div class="pricing-card">
-                <div class="pricing-name">Scale</div>
-                <div class="pricing-price">$49.99<span>/mo</span></div>
-                <div class="pricing-desc">For growing businesses</div>
-                <ul class="pricing-features">
-                    <li>100 quotes per month</li>
-                    <li>Everything in Pro</li>
-                    <li>White-label reports</li>
-                    <li>API access</li>
-                    <li>Dedicated support</li>
-                </ul>
-                <a href="mailto:hello@catercalc.app?subject=Scale%20Plan%20Inquiry" class="btn btn-outline">Contact Sales</a>
+    <section class="section" id="pricing">
+        <div class="pricing-section">
+            <h2 class="section-title">Simple, Fair Pricing</h2>
+            <p style="text-align: center; color: rgba(250,250,250,0.7);">No hidden fees. No unlimited claims. Just pay for what you use.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-title">Starter</div>
+                    <div class="pricing-price">$0 <span>forever</span></div>
+                    <ul class="pricing-features">
+                        <li>3 quotes per month</li>
+                        <li>Basic cost calculation</li>
+                        <li>Shopping list generation</li>
+                        <li>Quote tracking</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-title">Pro</div>
+                    <div class="pricing-price">$19<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>25 quotes per month</li>
+                        <li>AI market research</li>
+                        <li>Local supplier lookup</li>
+                        <li>Negotiation guides</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-title">Scale</div>
+                    <div class="pricing-price">$49<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>100 quotes per month</li>
+                        <li>White-label reports</li>
+                        <li>API access</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </section>
-    
-    <section class="cta" id="contact">
-        <h2>Ready to Price Like a Pro?</h2>
-        <p>Join caterers and food truck owners who've stopped underpricing their work.</p>
-        <a href="https://catercalc-pro.pages.dev/" class="btn btn-primary">Get Started for Free →</a>
     </section>
     
     <footer>
-        <p>© 2026 CaterCalc Pro. All rights reserved.</p>
+        <p>© 2026 CaterCalc Pro. Know Your Numbers. Feed Your Profit.</p>
     </footer>
 </body>
 </html>
